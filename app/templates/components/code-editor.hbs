@@ -1,0 +1,17 @@
+{{#paper-card as |card|}}
+    {{#card.title as |cardTitle|}}
+        {{#cardTitle.text as |text|}}
+
+            {{#text.headline class="text-info"}}
+                <div class="code-editor__title">
+                    {{title}}
+                </div>
+            {{/text.headline}}
+
+        {{/cardTitle.text}}
+    {{/card.title}}
+
+    {{#card.content class="layout-row layout-align-space-between"}}
+        <textarea name="" id="" class="form-control container-fluid code-editor__area" cols="30" rows="10">{{output_data code}}</textarea>
+    {{/card.content}}
+{{/paper-card}}

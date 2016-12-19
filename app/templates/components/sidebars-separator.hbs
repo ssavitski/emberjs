@@ -1,0 +1,15 @@
+<div class="layout-column flex sidebars-separator">
+    <div class="flex sidebars-separator__row">
+        {{#paper-button warn=true raised=true onClick=(action "onSyncDataView") iconButton=true class="sidebars-separator__toView flex-100"}}
+            {{paper-icon "play_arrow" size=24}}
+        {{/paper-button}}
+    </div>
+
+    <br>
+
+    <div class="flex sidebars-separator__row">
+        {{#paper-button warn=true raised=true onClick=(action "onSyncCodeEditor") iconButton=true class="sidebars-separator__toCode flex-100"}}
+            {{paper-icon "play_arrow" size=24}}
+        {{/paper-button}}
+    </div>
+</div>

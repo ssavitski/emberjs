@@ -6,4 +6,8 @@ const Router = Ember.Router.extend({
   rootURL: config.rootURL
 });
 
+Router.map(function() {
+  this.route('data-editor', { path: '/' });
+});
+
 export default Router;

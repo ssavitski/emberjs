@@ -13,7 +13,8 @@ module.exports = function(defaults) {
     },
     sassOptions: {
       includePaths: [
-        'app/styles'
+        'bower_components/bemify/sass',
+        'bower_components/breakpoint-sass/stylesheets'
       ]
     }
   });

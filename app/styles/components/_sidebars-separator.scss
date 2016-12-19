@@ -1,0 +1,10 @@
+@include block("sidebars-separator") {
+
+    @include element("row") {
+        text-align: center;
+    }
+
+    @include element("toCode") {
+        transform: rotateY(180deg);
+    }
+}

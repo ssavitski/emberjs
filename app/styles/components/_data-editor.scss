@@ -1,0 +1,11 @@
+@include block("data-editor") {
+    flex-direction: column;
+
+    @include breakpoint($smartphone-width) {
+        flex-direction: row;
+    }
+
+    md-card {
+        background: darken($white, 5%);
+    }
+}

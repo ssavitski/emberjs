@@ -1,0 +1,51 @@
+{{#paper-card as |card|}}
+    {{#card.title as |cardTitle|}}
+        {{#cardTitle.text as |text|}}
+
+            {{#text.headline class="text-info"}}
+                <div class="data-view__title">
+                    {{title}}
+                </div>
+
+                <div class="pull-right">
+                    {{#paper-button raised=true class="data-view__add-item" onClick=(action "onAddItem")}}
+                        {{paper-icon "note_add" size=18}}
+                        Add item
+                    {{/paper-button}}
+                </div>
+            {{/text.headline}}
+
+        {{/cardTitle.text}}
+    {{/card.title}}
+
+    {{#card.content class="layout-row"}}
+        <table class="data-view__table table table-hover table-striped">
+            <thead>
+                <tr class="layout-row">
+                    <th class="flex-10">№</th>
+                    <th class="flex-30">name</th>
+                    <th class="flex-30">value</th>
+                    <th class="flex"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {{#each data as |item|}}
+                    <tr class="layout-row">
+                        <td class="flex-10">1</td>
+                        <td class="flex-30">{{item.name}}</td>
+                        <td class="flex-30">{{item.value}}</td>
+                        <td class="flex data-view__edit-buttons">
+                            {{#paper-button primary=true onClick=(action "onEditItem") iconButton=true class="data-view__edit-button flex-100"}}
+                                {{paper-icon "mode_edit" size=18}}
+                            {{/paper-button}}
+                            {{#paper-button warn=true onClick=(action "onDeleteItem") iconButton=true class="data-view__edit-button flex-100"}}
+                                {{paper-icon "delete" size=18}}
+                            {{/paper-button}}
+                        </td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    {{/card.content}}
+{{/paper-card}}

@@ -1,0 +1,6 @@
+@include block("code-editor") {
+
+    @include element("title") {
+        margin-top: $subtitles-top-offset;
+    }
+}

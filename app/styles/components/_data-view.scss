@@ -1,0 +1,36 @@
+@include block("data-view") {
+
+    @include element("table") {
+        width: 100%;
+        background: $white;
+        box-shadow: 0 1px 1px rgba($black, 0.4);
+
+        th {
+            text-align: left;
+        }
+    }
+
+    @include element("edit-buttons") {
+        text-align: right;
+    }
+
+    @include element("edit-button") {
+        margin: -8px 0 -10px !important;
+
+        md-icon {
+            vertical-align: top;
+        }
+    }
+
+    @include element("title") {
+        margin-top: $subtitles-top-offset;
+        float: left;
+    }
+
+    @include element("add-item") {
+
+        md-icon {
+            margin-top: -4px;
+        }
+    }
+}
