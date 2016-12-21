@@ -4,6 +4,13 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'simple-table-data-editor',
     environment: environment,
+    contentSecurityPolicy: {'connect-src': "'self' wss://*.firebaseio.com"},
+    firebase: {
+      apiKey: 'AIzaSyAmj7TZIC4tOUdt--zCMC5w7elL2gk_4K4',
+      authDomain: 'table-data-a4146.firebaseapp.com',
+      databaseURL: 'https://table-data-a4146.firebaseio.com',
+      storageBucket: 'gs://table-data-a4146.appspot.com',
+    },
     rootURL: '/',
     locationType: 'auto',
     EmberENV: {
