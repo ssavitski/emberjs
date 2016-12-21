@@ -1,0 +1,23 @@
+@include block("new-data-form") {
+
+	@include element("field") {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	@include element("button") {
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+
+		.material-icons {
+			font-weight: bold;
+		}
+	}
+
+	@include element("edit-buttons") {
+		min-width: 100px;
+		text-align: right;
+		padding-right: 8px;
+		padding-left: 8px;
+	}
+}
