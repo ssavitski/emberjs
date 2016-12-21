@@ -8,17 +8,22 @@
                 </div>
 
                 <div class="pull-right">
-                    {{#paper-button raised=true class="data-view__add-item" onClick=(action "onAddItem")}}
-                        {{paper-icon "note_add" size=18}}
-                        Add item
-                    {{/paper-button}}
+                    {{#link-to 'data-editor.new'}}
+                        {{#paper-button raised=true class="data-view__add-item"}}
+                            {{paper-icon "note_add" size=18}}
+                            Add item
+                        {{/paper-button}}
+                    {{/link-to}}
                 </div>
             {{/text.headline}}
 
         {{/cardTitle.text}}
     {{/card.title}}
 
-    {{#card.content class="layout-row"}}
+    {{#card.content class="layout-row data-view__table-container"}}
+        <div class="layout-row new-data-from">
+            {{outlet}}
+        </div>
         <table class="data-view__table table table-hover table-striped">
             <thead>
                 <tr class="layout-row">
@@ -30,16 +35,18 @@
             </thead>
 
             <tbody>
-                {{#each data as |item|}}
-                    <tr class="layout-row">
-                        <td class="flex-10">1</td>
-                        <td class="flex-30">{{item.name}}</td>
-                        <td class="flex-30">{{item.value}}</td>
+                {{#each data as |item index|}}
+                    <tr class="layout-row" id="{{to_json item "id"}}">
+                        <td class="flex-10">{{sum index 1}}</td>
+                        <td class="flex-30">{{to_json item "name"}}</td>
+                        <td class="flex-30">{{to_json item "value"}}</td>
                         <td class="flex data-view__edit-buttons">
-                            {{#paper-button primary=true onClick=(action "onEditItem") iconButton=true class="data-view__edit-button flex-100"}}
-                                {{paper-icon "mode_edit" size=18}}
-                            {{/paper-button}}
-                            {{#paper-button warn=true onClick=(action "onDeleteItem") iconButton=true class="data-view__edit-button flex-100"}}
+                            {{#link-to 'data-editor.edit' item}}
+                                {{#paper-button primary=true iconButton=true class="data-view__edit-button flex-100"}}
+                                    {{paper-icon "mode_edit" size=18}}
+                                {{/paper-button}}
+                            {{/link-to}}
+                            {{#paper-button warn=true onClick=(action "onDeleteItem" item) iconButton=true class="data-view__edit-button flex-100"}}
                                 {{paper-icon "delete" size=18}}
                             {{/paper-button}}
                         </td>
