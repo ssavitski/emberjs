@@ -1,7 +1,11 @@
 import Ember from 'ember';
 
 export function output_data(data) {
-    return JSON.stringify(data[0], null, 4);
+	let outputData = _.map(data, (item, index) => {
+		return item.toJSON();
+	};
+
+    return JSON.stringify(outputData, null, 4);
 };
 
 export default Ember.Helper.helper(output_data);
