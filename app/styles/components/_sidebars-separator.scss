@@ -1,10 +1,27 @@
 @include block("sidebars-separator") {
+	flex-direction: column;
+
+	@include breakpoint(0 $smartphone-width) {
+        flex-direction: row;
+    }
 
     @include element("row") {
         text-align: center;
     }
 
     @include element("toCode") {
-        transform: rotateY(180deg);
+		transform: rotateZ(-90deg);
+
+        @include breakpoint($smartphone-width) {
+	        transform: rotateY(180deg);
+	    }    
+    }
+
+    @include element("toView") {
+    	transform: rotateZ(90deg);
+
+        @include breakpoint($smartphone-width) {
+	        transform: rotateY(0deg);
+	    }    	
     }
 }

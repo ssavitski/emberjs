@@ -8,4 +8,22 @@
     md-card {
         background: darken($white, 5%);
     }
+
+    @include element("separator") {
+    	align-items: center;
+    	display: flex;
+    	flex-direction: row;
+    	justify-content: center;
+    }
+
+    @include element("component") {
+
+		@include breakpoint(0 $smartphone-width) {
+	        max-width: 100% !important;
+	    }
+
+        md-card-content {
+            height: 350px;
+        }
+    }
 }

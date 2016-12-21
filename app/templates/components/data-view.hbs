@@ -20,21 +20,22 @@
         {{/cardTitle.text}}
     {{/card.title}}
 
-    {{#card.content class="layout-row data-view__table-container"}}
+    {{#card.content class="layout-row data-view__wrapper"}}
         <div class="layout-row new-data-from">
             {{outlet}}
         </div>
-        <table class="data-view__table table table-hover table-striped">
-            <thead>
+        <div class="data-view__table-container">
+            <table class="data-view__table table table-hover table-striped">
+                <thead>
                 <tr class="layout-row">
                     <th class="flex-10">№</th>
                     <th class="flex-30">name</th>
                     <th class="flex-30">value</th>
                     <th class="flex"></th>
                 </tr>
-            </thead>
+                </thead>
 
-            <tbody>
+                <tbody>
                 {{#each data as |item index|}}
                     <tr class="layout-row" id="{{to_json item "id"}}">
                         <td class="flex-10">{{sum index 1}}</td>
@@ -52,7 +53,8 @@
                         </td>
                     </tr>
                 {{/each}}
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     {{/card.content}}
 {{/paper-card}}

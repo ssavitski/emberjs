@@ -2,5 +2,10 @@
 
     @include element("title") {
         margin-top: $subtitles-top-offset;
+        margin-bottom: 6px;
+    }
+
+    @include element("area") {
+		width: 100% !important;
     }
 }

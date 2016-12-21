@@ -1,6 +1,6 @@
 @include block("data-view") {
 
-    @include element("table-container") {
+    @include element("wrapper") {
         flex-direction: column;
     }
 
@@ -13,6 +13,10 @@
         th {
             text-align: left;
         }
+    }
+
+    @include element("table-container") {
+        overflow-y: auto;
     }
 
     @include element("edit-buttons") {
