@@ -1,13 +1,13 @@
 <div class="layout-row flex data-editor">
     <div class="flex data-editor__component">
-        {{code-editor title="Code editor" code=model}}
+        {{code-editor title="Code editor" code=codeItems}}
     </div>
 
-    <div class="flex-10 layout-column data-editor__component">
+    <div class="flex-10 layout-column data-editor__component data-editor__separator">
         {{sidebars-separator}}
     </div>
 
     <div class="flex data-editor__component">
-        {{data-view title="Data view" data=model}}
+        {{data-view title="Data view" data=tableItems}}
     </div>
 </div>

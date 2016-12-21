@@ -1,10 +1,15 @@
 import Ember from 'ember';
 
-export default Ember.Route.extend({
-    model() {
-        return [
-            { name: 'name1', value: 'value1' },
-            { name: 'name2', value: 'value2' }
-        ];
-    }
+const { Route, set } = Ember;
+
+export default Route.extend({
+	model() {
+		return this.store.findAll('data-item');
+	},
+
+	setupController(controller, model) {
+		set(controller, 'dataItems', model);
+		set(controller, 'tableItems', model.toArray());
+		set(controller, 'codeItems', model.toArray());
+	},
 });
