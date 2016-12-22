@@ -3,6 +3,7 @@ import _ from 'lodash/lodash';
 
 export default Ember.Controller.extend({
     codeElement: null,
+    jsonIsInvalid: false,
 
     outputData(data) {
         let outputData = _.map(data, (item, index) => {
@@ -46,6 +47,7 @@ export default Ember.Controller.extend({
             let tableItems = this.get('tableItems');
             this.set('codeItems', tableItems);
             this.get('codeElement')[0].value = this.outputData(this.get('codeItems'));
+            this.set('jsonIsInvalid', false);
         },
 
         onCodeSyncTable() {
@@ -55,6 +57,7 @@ export default Ember.Controller.extend({
             if (this.isJsonString(str)) {
                 let jsonStr = JSON.stringify(eval("(" + str + ")"));
                 let json = JSON.parse(jsonStr);
+                this.set('jsonIsInvalid', false);
 
                 this.store.findAll('data-item').then(items => {
                     var i = 0;
@@ -88,6 +91,7 @@ export default Ember.Controller.extend({
 
                 console.info('JSON in the editor is valid!');
             } else {
+                this.set('jsonIsInvalid', true);
                 console.warn('JSON in the editor is not valid!');
             }
         },

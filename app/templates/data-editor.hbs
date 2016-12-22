@@ -1,9 +1,10 @@
 <div class="layout-row flex data-editor">
-    <div class="flex data-editor__component">
+    <div class="flex data-editor__component data-editor__textarea">
         {{code-editor
                 title="Code data editor"
                 code=codeItems
                 action="onSetLinkOnTextarea"
+                jsonIsInvalid=jsonIsInvalid
         }}
     </div>
 

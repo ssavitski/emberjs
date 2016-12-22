@@ -1,31 +1,49 @@
-<div class="flex-10"></div>
-{{paper-input 
-	flex=30 
-	label="name" 
-	type="text"
-	value=model.name 
-	class="new-data-form__field"
-	required=true
-	errorMessages=(hash
-    	required="Name is required."
-  	)
-	onChange=(action (mut model.name))}}
-{{paper-input 
-	flex=30 
-	label="value" 
-	type="text"
-	value=model.value
-	class="new-data-form__field"
-	required=true
-	errorMessages=(hash
-    	required="Value is required."
-  	) 
-	onChange=(action (mut model.value))}}
-<div class="flex-30 new-data-form__edit-buttons">
-	{{#paper-button primary=true onClick=(action "onEditItem" model.id) iconButton=true class="new-data-form__button flex-100"}}
-        {{paper-icon "done" size=18}}
-    {{/paper-button}}
-    {{#paper-button warn=true onClick=(action "onCloseItem") iconButton=true class="new-data-form__button flex-100"}}
-        {{paper-icon "clear" size=18}}
-    {{/paper-button}}
-</div>
+{{#paper-form onSubmit=(action "onEditItem" model.id) as |form|}}
+    <div class="flex-10"></div>
+
+    {{paper-input
+            flex=30
+            label="name"
+            type="text"
+            value=model.name
+            class="new-data-form__field"
+            required=true
+            errorMessages=(hash
+                required="Name is required."
+            )
+            onChange=(action (mut model.name))
+    }}
+
+    {{paper-input
+            flex=30
+            label="value"
+            type="text"
+            value=model.value
+            class="new-data-form__field"
+            required=true
+            errorMessages=(hash
+                required="Value is required."
+            )
+            onChange=(action (mut model.value))
+    }}
+
+    <div class="flex-30 new-data-form__edit-buttons">
+        {{#form.submit-button
+                disabled=form.isInvalid
+                primary=true
+                iconButton=true
+                class="new-data-form__button flex-100"
+        }}
+            {{paper-icon "done" size=18}}
+        {{/form.submit-button}}
+
+        {{#paper-button
+                warn=true
+                onClick=(action "onCloseItem")
+                iconButton=true
+                class="new-data-form__button flex-100"
+        }}
+            {{paper-icon "clear" size=18}}
+        {{/paper-button}}
+    </div>
+{{/paper-form}}

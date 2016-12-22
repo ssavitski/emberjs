@@ -12,6 +12,14 @@
     {{/card.title}}
 
     {{#card.content class="layout-row layout-align-space-between"}}
-        <textarea name="" id="data-code" class="form-control container-fluid code-editor__area" cols="30" rows="10">{{output_data code}}</textarea>
+        <textarea
+                name=""
+                id="data-code"
+                class="form-control container-fluid code-editor__area"
+                cols="30"
+                rows="10">{{output_data code}}</textarea>
+        {{#if jsonIsInvalid}}
+            <div class="code-editor__error">Please, correct JSON in the editor, it must be valid!</div>
+        {{/if}}
     {{/card.content}}
 {{/paper-card}}

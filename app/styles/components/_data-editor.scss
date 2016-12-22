@@ -26,4 +26,11 @@
             height: 350px;
         }
     }
+
+    @include element("textarea") {
+
+        md-card-content {
+            display: block;
+        }
+    }
 }

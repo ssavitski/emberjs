@@ -7,5 +7,13 @@
 
     @include element("area") {
 		width: 100% !important;
+        height: 320px !important;
+    }
+
+    @include element("error") {
+        color: #d50000;
+        font-size: 12px;
+        line-height: 14px;
+        padding-top: 5px;
     }
 }
