@@ -1,13 +1,24 @@
 <div class="layout-row flex data-editor">
     <div class="flex data-editor__component">
-        {{code-editor title="Code data editor" code=codeItems}}
+        {{code-editor
+                title="Code data editor"
+                code=codeItems
+                action="onSetLinkOnTextarea"
+        }}
     </div>
 
     <div class="flex-10 layout-column data-editor__component data-editor__separator">
-        {{sidebars-separator}}
+        {{sidebars-separator
+                syncTableToCode="onTableSyncCode"
+                syncCodeToTable="onCodeSyncTable"
+        }}
     </div>
 
     <div class="flex data-editor__component">
-        {{data-view title="Data view" data=tableItems}}
+        {{data-view
+                title="Data view"
+                deleteItem="onDeleteItem"
+                data=tableItems
+        }}
     </div>
 </div>

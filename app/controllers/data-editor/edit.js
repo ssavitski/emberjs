@@ -1,26 +1,33 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+    dataEditorController: Ember.inject.controller('data-editor'),
+
 	actions: {
         onEditItem(id) {
             const name = this.get('model.name');
             const value = this.get('model.value');
+            const dataEditorCtrl = this.get('dataEditorController');
             const _self = this;
 
-            this.store.findRecord('data-item', id).then(function(item) {
+            this.store.findRecord('data-item', id).then(item => {
         		item.set('name', name);
         		item.set('value', value);
 
-        		item.save();
-        		_self.transitionToRoute('data-editor');
-        		console.log('Action > Item has been modified');
-            }, function(error) {
+        		item.save().then(() => {
+                    _self.setProperties({
+                        name: '',
+                        value: '',
+                    });
 
-            });
+                    let tableItems = dataEditorCtrl.get('dataItems').toArray();
+                    dataEditorCtrl.set('tableItems', tableItems);
 
-            this.setProperties({
-            	name: '',
-            	value: '',
+                    _self.transitionToRoute('data-editor');
+                    console.log('Action > Item has been modified');
+                });
+            }, error => {
+
             });
         },
 

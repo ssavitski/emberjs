@@ -13,6 +13,10 @@
         th {
             text-align: left;
         }
+
+        td {
+            word-wrap: break-word;
+        }
     }
 
     @include element("table-container") {

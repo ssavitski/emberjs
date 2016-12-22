@@ -3,11 +3,13 @@ import Ember from 'ember';
 export default Ember.Component.extend({
     actions: {
         onSyncCodeEditor() {
-            console.log('Syncronize with code editor');
+            this.sendAction('syncTableToCode');
+            console.log('Action > Syncronize with code editor');
         },
 
         onSyncDataView() {
-            console.log('Syncronize with data view');
+            this.sendAction('syncCodeToTable');
+            console.log('Action > Syncronize with data view');
         },
     }
 });
