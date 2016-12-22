@@ -1,4 +1,8 @@
 # Simple table data editor
+
+
+## Application preview:
+
 ![Application preview](https://s23.postimg.org/5pgbjy4t7/screen.jpg)
 
 ## Used Components & libraries:
