@@ -10,7 +10,7 @@
   },
   "repository": "",
   "scripts": {
-    "install": "npm install && bower install";
+    "install": "npm install && bower install",
     "build": "ember build",
     "start": "ember server",
     "test": "ember test"
